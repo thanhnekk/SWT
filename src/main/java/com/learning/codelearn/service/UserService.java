@@ -15,7 +15,7 @@ public interface UserService {
     User authenticate(String username, String password);
 
     void saveCourse(User user, long courseId);
-    void updateResetPasswordToken(String token, String email) throws UserNotFoundException, UserNotFoundException;
+    void updateResetPasswordToken(String token, String email) throws UserNotFoundException;
     User get(String resetPasswordToken) throws UserNotFoundException;
     void updatePassword(User user, String newPassword) ;
 }
