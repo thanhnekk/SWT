@@ -17,13 +17,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.UnsupportedEncodingException;
+import java.security.SecureRandom; // Sử dụng SecureRandom
 import java.util.Random;
 
 @Controller
 public class ForgotPasswordController {
     private final UserService userService;
     private final JavaMailSender mailSender;
-    private final Random random = new Random(); // Lưu và sử dụng lại instance Random
+    private final SecureRandom secureRandom = new SecureRandom(); // Sử dụng SecureRandom để đảm bảo an toàn
 
     @Autowired
     public ForgotPasswordController(UserService userService, JavaMailSender mailSender) {
@@ -62,7 +63,7 @@ public class ForgotPasswordController {
         int rightLimit = 122; // ký tự 'z'
         StringBuilder buffer = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+            int randomLimitedInt = leftLimit + secureRandom.nextInt(rightLimit - leftLimit + 1);
             buffer.append((char) randomLimitedInt);
         }
         return buffer.toString();
