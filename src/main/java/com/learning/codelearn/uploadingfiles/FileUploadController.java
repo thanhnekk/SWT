@@ -29,7 +29,7 @@ public class FileUploadController {
         model.addAttribute("files", storageService.loadAll().map(
                         path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
                                 "serveFile", path.getFileName().toString()).build().toUri().toString())
-                .collect(Collectors.toList()));
+             (CollectorsStream.toList()));
 
         return "file";
     }
