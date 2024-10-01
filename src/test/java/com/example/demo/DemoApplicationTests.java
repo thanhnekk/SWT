@@ -8,6 +8,7 @@ class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//This is empy because test is not used, unnecessary
 	}
 
 }
