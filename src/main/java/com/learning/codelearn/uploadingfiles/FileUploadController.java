@@ -54,7 +54,7 @@ public class FileUploadController {
         return "redirect:/";
     }
     @ExceptionHandler(StorageFileNotFoundException.class)
-    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+    public ResponseEntity<Void> handleStorageFileNotFound(StorageFileNotFoundException exc) {
         return ResponseEntity.notFound().build();
     }
 }
