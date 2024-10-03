@@ -1,11 +1,9 @@
 package com.learning.codelearn.dto;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
 
-import java.time.LocalDate;
+import lombok.Data;
+
 
 @Data
 public class RegistrationDto {
